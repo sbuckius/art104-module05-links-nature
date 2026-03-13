@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technology + Nature / Digital Media Art — Resources</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f0b;
+    --surface: #131610;
+    --border: #2a3024;
+    --green: #7aad5c;
+    --green-dim: #4a6e37;
+    --cream: #e8e4d4;
+    --muted: #7a8070;
+    --accent: #c8f03c;
+    --peer: #5fa67a;
+    --nonpeer: #7a9cad;
+    --switch: #c08040;
+    --artist: #ad5c7a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--cream);
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 60px 60px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(122,173,92,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-label {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--green);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--cream);
+    max-width: 700px;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .header-sub {
+    margin-top: 20px;
+    color: var(--muted);
+    font-size: 12px;
+    max-width: 600px;
+  }
+
+  /* LEGEND */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px 60px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .dot-peer { background: var(--peer); }
+  .dot-nonpeer { background: var(--nonpeer); }
+  .dot-switch { background: var(--switch); }
+  .dot-artist { background: var(--artist); }
+
+  /* NAV */
+  nav {
+    padding: 20px 60px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  nav a {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 5px 12px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+  nav a:hover {
+    color: var(--accent);
+    border-color: var(--green-dim);
+    background: rgba(122,173,92,0.05);
+  }
+
+  /* MAIN */
+  main {
+    padding: 0 60px 100px;
+  }
+
+  /* THEME SECTION */
+  .theme {
+    border-left: 2px solid var(--border);
+    margin-top: 70px;
+    padding-left: 40px;
+    transition: border-color 0.3s;
+  }
+  .theme:hover {
+    border-color: var(--green-dim);
+  }
+
+  .theme-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  .theme-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--border);
+    line-height: 1;
+    flex-shrink: 0;
+    user-select: none;
+  }
+  .theme-title-block {}
+  .theme-tag {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 6px;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.2;
+  }
+  .theme-desc {
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 30px;
+    max-width: 700px;
+    font-style: italic;
+  }
+
+  /* SUBSECTIONS */
+  .subsection {
+    margin-bottom: 28px;
+  }
+  .subsection-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .subsection-label .dot { flex-shrink: 0; }
+
+  /* ENTRIES */
+  .entries { display: flex; flex-direction: column; gap: 4px; }
+
+  .entry {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: center;
+    padding: 10px 14px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    transition: all 0.15s;
+  }
+  .entry:hover {
+    border-color: var(--border);
+    background: var(--surface);
+  }
+  .entry-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .entry-title {
+    font-size: 12px;
+    color: var(--cream);
+    font-weight: 500;
+  }
+  .entry-meta {
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .entry-link {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 5px 12px;
+    border-radius: 2px;
+    white-space: nowrap;
+    transition: all 0.15s;
+    flex-shrink: 0;
+  }
+  .link-peer {
+    color: var(--peer);
+    border: 1px solid rgba(95,166,122,0.3);
+  }
+  .link-peer:hover { background: rgba(95,166,122,0.1); }
+
+  .link-nonpeer {
+    color: var(--nonpeer);
+    border: 1px solid rgba(122,156,173,0.3);
+  }
+  .link-nonpeer:hover { background: rgba(122,156,173,0.1); }
+
+  .link-switch {
+    color: var(--switch);
+    border: 1px solid rgba(192,128,64,0.3);
+  }
+  .link-switch:hover { background: rgba(192,128,64,0.1); }
+
+  .link-artist {
+    color: var(--artist);
+    border: 1px solid rgba(173,92,122,0.3);
+  }
+  .link-artist:hover { background: rgba(173,92,122,0.1); }
+
+  /* ARTIST GRID */
+  .artist-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 30px;
+  }
+  .artist-chip {
+    font-size: 11px;
+    padding: 5px 14px;
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    color: var(--artist);
+    background: rgba(173,92,122,0.05);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    transition: all 0.15s;
+  }
+  .artist-chip:hover {
+    border-color: var(--artist);
+    background: rgba(173,92,122,0.12);
+  }
+  .artist-chip span { color: var(--muted); font-size: 10px; }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 60px 0 0;
+    opacity: 0.5;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 60px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 11px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    header, nav, main, .legend, footer { padding-left: 24px; padding-right: 24px; }
+    .theme { padding-left: 20px; }
+    .entry { grid-template-columns: 1fr; }
+    .entry-link { align-self: flex-start; }
+  }
+
+  /* SCROLL ANCHOR OFFSET */
+  .anchor { scroll-margin-top: 80px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-label">Research Bibliography</div>
+  <h1>Technology + <em>Nature</em><br>Digital Media Art</h1>
+  <p class="header-sub">A curated bibliography of artists, peer-reviewed scholarship, critical essays, and Switch journal articles organized by theme.</p>
+  <p style="margin-top:14px; font-size:11px; color:var(--muted); border-left:2px solid var(--green-dim); padding-left:12px;">Most of these links were gathered by Sarah, but AI compiled it into the HTML format.</p>
+</header>
+
+<div class="legend">
+  <div class="legend-item"><div class="dot dot-peer"></div> Peer-Reviewed Article / Book</div>
+  <div class="legend-item"><div class="dot dot-nonpeer"></div> Critical Essay / Catalogue / Web</div>
+  <div class="legend-item"><div class="dot dot-switch"></div> Switch (SJSU) Article</div>
+  <div class="legend-item"><div class="dot dot-artist"></div> Artist / Artwork</div>
+</div>
+
+<nav>
+  <a href="#alife">Artificial Life</a>
+  <a href="#biotech">Biotech & Genetics</a>
+  <a href="#telepresence">Telepresence & Remote Ecologies</a>
+  <a href="#infrastructure">Hidden Ecology of the Internet</a>
+  <a href="#virtual">Virtual Nature & Immersive Space</a>
+  <a href="#interspecies">Interspecies & Post-human</a>
+  <a href="#ecocriticism">Ecocriticism & Climate Media</a>
+  <a href="#activist">Activist & Critical Practices</a>
+</nav>
+
+<main>
+
+<!-- ====== 1. ARTIFICIAL LIFE ====== -->
+<section class="theme anchor" id="alife">
+  <div class="theme-header">
+    <div class="theme-num">01</div>
+    <div class="theme-title-block">
+      <div class="theme-tag">Theme</div>
+      <h2>Artificial Life & Generative Ecosystems</h2>
+    </div>
+  </div>
+  <p class="theme-desc">Code that evolves, simulates biological growth, and asks whether digital processes can constitute genuine life. From swarm intelligence to virtual creatures, these works collapse the boundary between organism and algorithm.</p>
+
+  <div class="subsection">
+    <div class="subsection-label"><div class="dot dot-artist"></div> Artists & Works</div>
+    <div class="artist-grid">
+      <a class="artist-chip" href="https://www.karlsims.com/galapagos/" target="_blank">Karl Sims <span>Galapagos</span></a>
+      <a class="artist-chip" href="https://www.interface.ufg.ac.at/christa-laurent/A-Volve.html" target="_blank">Sommerer & Mignonneau <span>A-Volve</span></a>
+      <a class="artist-chip" href="https://www.interface.ufg.ac.at/christa-laurent/InteractivePlantGrowing.html" target="_blank">Sommerer & Mignonneau <span>Interactive Plant Growing</span></a>
+      <a class="artist-chip" href="https://www.interface.ufg.ac.at/christa-laurent/LifeSpacies.html" target="_blank">Sommerer & Mignonneau <span>Life Spacies</span></a>
+      <a class="artist-chip" href="https://www.interface.ufg.ac.at/christa-laurent/LifeWriter.html" target="_blank">Sommerer & Mignonneau <span>Life Writer</span></a>
+      <a class="artist-chip" href="https://tomray.me/tierra/" target="_blank">Thomas Ray <span>Tierra</span></a>
+      <a class="artist-chip" href="https://emergence.design.ucla.edu/" target="_blank">Rebecca Allen <span>Emergence</span></a>
+      <a class="artist-chip" href="http://www.cityarts.com/lmno/ecosystm.html" target="_blank">John Klima <span>ecosystm</span></a>
+      <a class="artist-chip" href="http://www.cityarts.com/langlois/glasbead.html" target="_blank">John Klima <span>Glasbead</span></a>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-label"><div class="dot dot-peer"></div> Peer-Reviewed</div>
+    <div class="entries">
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">A Survey of Recent Practice of Artificial Life in Visual Art</div>
+          <div class="entry-meta">Wu, Zi-Wei et al. — Artificial Life, MIT Press, 2024 · 40-year survey of ALife art including ecosystem simulation and bio-as-data</div>
+        </div>
+        <a class="entry-link link-peer" href="https://direct.mit.edu/artl/article/30/1/106/119728" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Artificial Life Art, Creativity, and Techno-hybridization</div>
+          <div class="entry-meta">Dorin, Alan — Artificial Life, MIT Press, 2015 · Special issue introduction on ALife art and biological metaphors</div>
+        </div>
+        <a class="entry-link link-peer" href="https://direct.mit.edu/artl/article/21/3/261/2818" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">The Surprising Creativity of Digital Evolution</div>
+          <div class="entry-meta">Lehman, Sims, Ray et al. — Artificial Life, MIT Press, 2020 · Co-authored by artists in this list; creativity in digital evolution</div>
+        </div>
+        <a class="entry-link link-peer" href="https://direct.mit.edu/artl/article/26/2/274/93255" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Art and Digital Evolution</div>
+          <div class="entry-meta">Sommerer & Mignonneau — ResearchGate · Overview of their ALife practice and interactive systems</div>
+        </div>
+        <a class="entry-link link-peer" href="https://www.researchgate.net/publication/299763724_Art_and_Digital_Evolution" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Rigorous Creativity: AI, Art and Electronic Life</div>
+          <div class="entry-meta">Tate Britain Electronic Life initiative — Taylor & Francis, 2025 · AI as partner in extended creativity, Tate Britain</div>
+        </div>
+        <a class="entry-link link-peer" href="https://www.tandfonline.com/doi/full/10.1080/14702029.2025.2577021" target="_blank">→ Read</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-label"><div class="dot dot-nonpeer"></div> Critical / Archival</div>
+    <div class="entries">
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Art and Artificial Life – a Primer</div>
+          <div class="entry-meta">eScholarship / UC California · Historical overview of ALife art practices</div>
+        </div>
+        <a class="entry-link link-nonpeer" href="https://escholarship.org/content/qt1z07j77x/qt1z07j77x_noSplash_29e82584dcff293612414d1ef5ad8d16.pdf" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Immersive Artificial Life Art (Edwina Bartlem)</div>
+          <div class="entry-meta">ekac.org · Essay on McCormack, Sommerer, and the ambivalence of virtual natures</div>
+        </div>
+        <a class="entry-link link-nonpeer" href="https://www.ekac.org/edwina.html" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Media Art Net — Karl Sims: Galapagos</div>
+          <div class="entry-meta">medienkunstnetz.de · Documentation and analysis of Galapagos</div>
+        </div>
+        <a class="entry-link link-nonpeer" href="http://www.medienkunstnetz.de/works/galapagos/images/2/" target="_blank">→ Read</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-label"><div class="dot dot-switch"></div> Switch Journal Articles</div>
+    <div class="entries">
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Growth Pattern</div>
+          <div class="entry-meta">Switch v28 · On biological growth patterns and digital art</div>
+        </div>
+        <a class="entry-link link-switch" href="https://switch.sjsu.edu/archive/wp/v28/index.html%3Fp=599.html" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Biohacking</div>
+          <div class="entry-meta">Switch v28 · Biohacking practices and their intersection with art</div>
+        </div>
+        <a class="entry-link link-switch" href="https://switch.sjsu.edu/archive/wp/v28/index.html%3Fp=607.html" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Biocurious</div>
+          <div class="entry-meta">Switch v28 · Community biology and citizen science in art</div>
+        </div>
+        <a class="entry-link link-switch" href="https://switch.sjsu.edu/archive/wp/v28/index.html%3Fp=604.html" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Purpose Machines</div>
+          <div class="entry-meta">Switch v24 · Machines, purpose, and lifelike behavior</div>
+        </div>
+        <a class="entry-link link-switch" href="https://switch.sjsu.edu/archive/v24/articles/purpose_machines/index.html" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Mimetics of History</div>
+          <div class="entry-meta">Switch v24 · Imitation, nature, and memory in media art</div>
+        </div>
+        <a class="entry-link link-switch" href="https://switch.sjsu.edu/archive/v24/articles/mimetics_of_history/index.html" target="_blank">→ Read</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 2. BIOTECH & GENETICS ====== -->
+<section class="theme anchor" id="biotech">
+  <div class="theme-header">
+    <div class="theme-num">02</div>
+    <div class="theme-title-block">
+      <div class="theme-tag">Theme</div>
+      <h2>Biotech, Genetics & the Manipulation of Life</h2>
+    </div>
+  </div>
+  <p class="theme-desc">Artists working at the intersection of biology and technology — encoding DNA, growing tissue sculptures, critiquing GMOs. These are political works about who controls life itself.</p>
+
+  <div class="subsection">
+    <div class="subsection-label"><div class="dot dot-artist"></div> Artists & Works</div>
+    <div class="artist-grid">
+      <a class="artist-chip" href="https://www.ekac.org/genesis.html" target="_blank">Eduardo Kac <span>Genesis</span></a>
+      <a class="artist-chip" href="https://tcaproject.net/" target="_blank">Catts & Zurr <span>Tissue Culture & Art</span></a>
+      <a class="artist-chip" href="http://critical-art.net/genterra/" target="_blank">Critical Art Ensemble <span>Genterra</span></a>
+      <a class="artist-chip" href="http://www.medienkunstnetz.de/works/one-trees/" target="_blank">Natalie Jeremijenko <span>OneTrees</span></a>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-label"><div class="dot dot-peer"></div> Peer-Reviewed</div>
+    <div class="entries">
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Bioart (Yetisen, Davis et al.)</div>
+          <div class="entry-meta">Trends in Biotechnology, 2015 · Comprehensive bioart history; ethics; connection to environmental art. Open access.</div>
+        </div>
+        <a class="entry-link link-peer" href="https://scholar.harvard.edu/files/yetisen/files/bioart.pdf" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Non/living Matter: Feminist Technoecologies of Bioart</div>
+          <div class="entry-meta">Radomska — Australian Feminist Studies, 2017 · Focuses on TC&A, entanglement of technology and biomatter</div>
+        </div>
+        <a class="entry-link link-peer" href="https://www.tandfonline.com/doi/full/10.1080/08164649.2017.1466649" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Thinking 'The End of Times': The Significance of Bioart for Art|Education</div>
+          <div class="entry-meta">Jagodzinski — PMC/Open Access, 2020 · Connects bioart to Anthropocene ecological crisis</div>
+        </div>
+        <a class="entry-link link-peer" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7333444/" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Bioart and Bildung — Wetware: Art, Agency, Animation</div>
+          <div class="entry-meta">PMC/Open Access · Bioart as ecological politics; bacteria, evolution, lifeforms in gallery space</div>
+        </div>
+        <a class="entry-link link-peer" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5134944/" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Blurring Bioart Boundaries</div>
+          <div class="entry-meta">Pietarinen & Qureshi — Frontiers in Communication, 2024 · Posthumanism, human-nonhuman relations in bioart</div>
+        </div>
+        <a class="entry-link link-peer" href="https://www.frontiersin.org/journals/communication/articles/10.3389/fcomm.2024.1458493/full" target="_blank">→ Read</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-label"><div class="dot dot-nonpeer"></div> Critical / Archival</div>
+    <div class="entries">
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Bioart Society — Interview with Erich Berger (Field_Notes)</div>
+          <div class="entry-meta">Art Journal Open · Bioart, hybrid ecology, and field labs in subarctic environments</div>
+        </div>
+        <a class="entry-link link-nonpeer" href="http://artjournal.collegeart.org/?page_id=10982" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Media Art Net — Eduardo Kac: Genesis</div>
+          <div class="entry-meta">medienkunstnetz.de · Documentation and analysis of Genesis</div>
+        </div>
+        <a class="entry-link link-nonpeer" href="http://www.medienkunstnetz.de/works/genesis/" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Fondation Langlois — Eduardo Kac: Genesis</div>
+          <div class="entry-meta">fondation-langlois.org · Curatorial essay on Genesis</div>
+        </div>
+        <a class="entry-link link-nonpeer" href="https://www.fondation-langlois.org/html/e/page.php?NumPage=278" target="_blank">→ Read</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-label"><div class="dot dot-switch"></div> Switch Journal Articles</div>
+    <div class="entries">
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Natalie Jeremijenko Ignites a Fire Under the Seats of CADRE Students</div>
+          <div class="entry-meta">Switch v24 · Feature on Jeremijenko's environmental and biotech practice</div>
+        </div>
+        <a class="entry-link link-switch" href="https://switch.sjsu.edu/archive/v24/features/jeremijenko/index.html" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Global Warming Symposium 2010 ZERO1</div>
+          <div class="entry-meta">Switch v27 · Artists and scientists address climate and biotechnology</div>
+        </div>
+        <a class="entry-link link-switch" href="https://switch.sjsu.edu/archive/wp/v27/index.html%3Fp=105.html" target="_blank">→ Read</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 3. TELEPRESENCE ====== -->
+<section class="theme anchor" id="telepresence">
+  <div class="theme-header">
+    <div class="theme-num">03</div>
+    <div class="theme-title-block">
+      <div class="theme-tag">Theme</div>
+      <h2>Telepresence & Remote Ecologies</h2>
+    </div>
+  </div>
+  <p class="theme-desc">Works that let you tend a garden or inhabit a bird's body from across the world via the internet — collapsing distance while introducing radical mediation between human and nature.</p>
+
+  <div class="subsection">
+    <div class="subsection-label"><div class="dot dot-artist"></div> Artists & Works</div>
+    <div class="artist-grid">
+      <a class="artist-chip" href="https://goldberg.berkeley.edu/garden/Ars/" target="_blank">Ken Goldberg <span>Telegarden</span></a>
+      <a class="artist-chip" href="https://docs.google.com/document/d/1W2bzl_fDGhyJKDSE9dVRV-lW8szOXXxjWjjmpagUEQw/edit" target="_blank">Ken Goldberg <span>AlphaGarden</span></a>
+      <a class="artist-chip" href="https://www.ekac.org/raraavis-info.html" target="_blank">Eduardo Kac <span>Rara Avis</span></a>
+      <a class="artist-chip" href="https://artcom.de/en/?project=terravision" target="_blank">ART+COM <span>TerraVision</span></a>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-label"><div class="dot dot-peer"></div> Peer-Reviewed / Scholarly</div>
+    <div class="entries">
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">New Media and Concepts of Landscape (includes Telegarden & OneTrees)</div>
+          <div class="entry-meta">ResearchGate · Case studies: Davies, Goldberg, Jeremijenko — new spatio-temporal relations with nature mediated by technology</div>
+        </div>
+        <a class="entry-link link-peer" href="https://www.researchgate.net/publication/303414365_Char_Davies%27s_Immersive_Virtual_Art_and_the_Essence_of_Spatiality" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">The Robot in the Garden — Introduction (Goldberg)</div>
+          <div class="entry-meta">goldberg.berkeley.edu · Chapter on telepistemology: perception, knowledge, and agency in internet projects</div>
+        </div>
+        <a class="entry-link link-peer" href="https://goldberg.berkeley.edu/art/tele/intro.html" target="_blank">→ Read</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-label"><div class="dot dot-nonpeer"></div> Critical / Archival</div>
+    <div class="entries">
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">The Presence Project — Telepresence Documentation</div>
+          <div class="entry-meta">Exeter/Stanford · Scholarly documentation of Telegarden, Rara Avis, and telepresence art</div>
+        </div>
+        <a class="entry-link link-nonpeer" href="http://spa.exeter.ac.uk/drama/presence/presence.stanford.edu_3455/Collaboratory/372aa88.html?view=print" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">The Technological Herbarium — Telegarden (Gatti, trans. Shapiro)</div>
+          <div class="entry-meta">alan-shapiro.com · Extended critical reading of Telegarden as "living model of small-planet social interactions"</div>
+        </div>
+        <a class="entry-link link-nonpeer" href="https://www.alan-shapiro.com/from-the-technological-herbarium-telegarden-by-ken-goldberg/" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Archive of Digital Art — Telegarden</div>
+          <div class="entry-meta">digitalartarchive.at · Archival documentation of Telegarden</div>
+        </div>
+        <a class="entry-link link-nonpeer" href="https://digitalartarchive.at/database/work/395/" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Media Art Net — TerraVision</div>
+          <div class="entry-meta">medienkunstnetz.de · On ART+COM's proto–Google Earth work</div>
+        </div>
+        <a class="entry-link link-nonpeer" href="http://www.medienkunstnetz.de/works/terravision/images/3/" target="_blank">→ Read</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-label"><div class="dot dot-switch"></div> Switch Journal Articles</div>
+    <div class="entries">
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Re-purpose Broken</div>
+          <div class="entry-meta">Switch v24 · Repurposing technology and tools in ecological art</div>
+        </div>
+        <a class="entry-link link-switch" href="https://switch.sjsu.edu/archive/v24/features/repurpose_broken/index.html" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">The Gift Economy of Artistic Practice</div>
+          <div class="entry-meta">Switch v24 · Social systems and ecological networks through dialogic artworks</div>
+        </div>
+        <a class="entry-link link-switch" href="https://switch.sjsu.edu/archive/v24/features/gift_economy/index.html" target="_blank">→ Read</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 4. HIDDEN ECOLOGY / INFRASTRUCTURE ====== -->
+<section class="theme anchor" id="infrastructure">
+  <div class="theme-header">
+    <div class="theme-num">04</div>
+    <div class="theme-title-block">
+      <div class="theme-tag">Theme</div>
+      <h2>Hidden Ecology of the Internet & Digital Infrastructure</h2>
+    </div>
+  </div>
+  <p class="theme-desc">Data centers, e-waste, rare earth minerals — the material and ecological cost of so-called "immaterial" digital media. Artists and scholars making the invisible visible.</p>
+
+  <div class="subsection">
+    <div class="subsection-label"><div class="dot dot-artist"></div> Artists & Works</div>
+    <div class="artist-grid">
+      <a class="artist-chip" href="https://tegabrain.com/Synthetic-Messenger" target="_blank">Tega Brain <span>Synthetic Messenger</span></a>
+      <a class="artist-chip" href="https://refikanadol.com/works/large-nature-model-living-art/" target="_blank">Refik Anadol <span>Large Nature Model</span></a>
+      <a class="artist-chip" href="http://www.cityarts.com/lmno/ecosystm.html" target="_blank">John Klima <span>ecosystm</span></a>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-label"><div class="dot dot-peer"></div> Peer-Reviewed</div>
+    <div class="entries">
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">"Environmental media" in the cloud: Critical Data Center Art</div>
+          <div class="entry-meta">Hogan — New Media & Society, 2023 · Art as intervention in digital infrastructure; connects directly to works like Synthetic Messenger</div>
+        </div>
+        <a class="entry-link link-peer" href="https://journals.sagepub.com/doi/10.1177/14614448221149942" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">The Medium Is the Environment: Digital Materialism, Climate Crisis and Digital Art as Pedagogy</div>
+          <div class="entry-meta">LeBlanc et al. — International Journal of Education Through Art, 2023</div>
+        </div>
+        <a class="entry-link link-peer" href="https://intellectdiscover.com/content/journals/10.1386/eta_00119_1" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">The Environmental Sustainability of Digital Content Consumption</div>
+          <div class="entry-meta">Freitag et al. — Nature Communications, 2024 · Peer-reviewed science on the carbon footprint of internet use</div>
+        </div>
+        <a class="entry-link link-peer" href="https://www.nature.com/articles/s41467-024-47621-w" target="_blank">→ Read</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-label"><div class="dot dot-switch"></div> Switch Journal Articles</div>
+    <div class="entries">
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Green Graphics</div>
+          <div class="entry-meta">Switch v25 · Environmental approaches to design and digital media production</div>
+        </div>
+        <a class="entry-link link-switch" href="https://switch.sjsu.edu/archive/v25/interviews/green_graphics/index.html" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Carbon Neutral? Exploring Electronic Waste</div>
+          <div class="entry-meta">Switch v25 · E-waste, material costs, and environmental impact of technology</div>
+        </div>
+        <a class="entry-link link-switch" href="https://switch.sjsu.edu/archive/v25/interviews/carbon_neutral/index.html" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">On Green Technology</div>
+          <div class="entry-meta">Switch v25 · Green technology initiatives and sustainable digital practices</div>
+        </div>
+        <a class="entry-link link-switch" href="https://switch.sjsu.edu/archive/v25/articles/green_technology/index.html" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Architectural Sustainability</div>
+          <div class="entry-meta">Switch v25 · Sustainability in architecture and built digital environments</div>
+        </div>
+        <a class="entry-link link-switch" href="https://switch.sjsu.edu/archive/v25/articles/architectural_sustainability/index.html" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">The Power of ONE</div>
+          <div class="entry-meta">Switch v25 · Individual responsibility and collective action in digital ecology</div>
+        </div>
+        <a class="entry-link link-switch" href="https://switch.sjsu.edu/archive/v25/articles/power_of_one/index.html" target="_blank">→ Read</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 5. VIRTUAL NATURE ====== -->
+<section class="theme anchor" id="virtual">
+  <div class="theme-header">
+    <div class="theme-num">05</div>
+    <div class="theme-title-block">
+      <div class="theme-tag">Theme</div>
+      <h2>Virtual Nature & Immersive Space</h2>
+    </div>
+  </div>
+  <p class="theme-desc">Can a digital landscape carry ecological meaning? VR environments that evoke fog, water, soil, and seasons — asking whether virtual nature can generate genuine ecological consciousness.</p>
+
+  <div class="subsection">
+    <div class="subsection-label"><div class="dot dot-artist"></div> Artists & Works</div>
+    <div class="artist-grid">
+      <a class="artist-chip" href="https://www.immersence.com/ephemere/" target="_blank">Charlotte Davies <span>Ephémère</span></a>
+      <a class="artist-chip" href="https://www.saraludy.com/deeptimesurfacetime-2019" target="_blank">Sara Ludy <span>Deep Time Surface Time</span></a>
+      <a class="artist-chip" href="https://whitney.org/exhibitions/sara-ludy" target="_blank">Sara Ludy <span>Dusk</span></a>
+      <a class="artist-chip" href="https://www.saraludy.com/untitled-blue-garden" target="_blank">Sara Ludy <span>Untitled Blue Garden</span></a>
+      <a class="artist-chip" href="http://www.jakobsteensen.com/theephemerallake" target="_blank">Jakob Steensen <span>The Ephemeral Lake</span></a>
+      <a class="artist-chip" href="https://tamikothiel.com/unexpectedgrowth/" target="_blank">Tamiko Thiel <span>Unexpected Growth</span></a>
+      <a class="artist-chip" href="https://www.petracortright.com/hello.html" target="_blank">Petra Cortright <span>Various works</span></a>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-label"><div class="dot dot-peer"></div> Peer-Reviewed</div>
+    <div class="entries">
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Char Davies's Immersive Virtual Art and the Essence of Spatiality</div>
+          <div class="entry-meta">ResearchGate/Book · Davies' VR works Osmose and Ephémère; case studies including Telegarden and OneTrees</div>
+        </div>
+        <a class="entry-link link-peer" href="https://www.researchgate.net/publication/303414365_Char_Davies%27s_Immersive_Virtual_Art_and_the_Essence_of_Spatiality" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">The Two Waves of Virtual Reality in Artistic Practice</div>
+          <div class="entry-meta">Doyle — Virtual Creativity, Intellect, 2021 · 1990s VR art (Davies, Dove) to contemporary immersive practices</div>
+        </div>
+        <a class="entry-link link-peer" href="https://intellectdiscover.com/content/journals/10.1386/vcr_00054_1" target="_blank">→ Read</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-label"><div class="dot dot-nonpeer"></div> Critical / Archival</div>
+    <div class="entries">
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Charlotte Davies: Osmose — Virtual Art, From Illusion to Immersion</div>
+          <div class="entry-meta">Grau/Academia.edu · Close analysis of Osmose's interface design and phenomenological effect</div>
+        </div>
+        <a class="entry-link link-nonpeer" href="https://www.academia.edu/589824/Charlotte_Davies_Osmose_Virtual_Art_From_Illusion_to_Immersion" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Media Art Net — Char Davies: Osmose</div>
+          <div class="entry-meta">medienkunstnetz.de · Documentation and critical analysis of Osmose</div>
+        </div>
+        <a class="entry-link link-nonpeer" href="http://www.medienkunstnetz.de/works/osmose/" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Outland — Sara Ludy: Virtual Space</div>
+          <div class="entry-meta">outland.art · Critical essay on Ludy's virtual and metaphysical worlds</div>
+        </div>
+        <a class="entry-link link-nonpeer" href="https://outland.art/sara-ludy-virtual-space/" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Neuroscience, Memory and Art: Deborah Aschheim</div>
+          <div class="entry-meta">Switch v28 · On virtual space, memory, and perception in digital art</div>
+        </div>
+        <a class="entry-link link-switch" href="https://switch.sjsu.edu/archive/wp/v28/index.html%3Fp=602.html" target="_blank">→ Read</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 6. INTERSPECIES ====== -->
+<section class="theme anchor" id="interspecies">
+  <div class="theme-header">
+    <div class="theme-num">06</div>
+    <div class="theme-title-block">
+      <div class="theme-tag">Theme</div>
+      <h2>Interspecies Communication & Post-human Ecologies</h2>
+    </div>
+  </div>
+  <p class="theme-desc">Using technology to bridge human and nonhuman worlds — from plants as interface devices to embodying a bird online. Can empathy traverse species boundaries through digital mediation?</p>
+
+  <div class="subsection">
+    <div class="subsection-label"><div class="dot dot-artist"></div> Artists & Works</div>
+    <div class="artist-grid">
+      <a class="artist-chip" href="https://www.ekac.org/raraavis-info.html" target="_blank">Eduardo Kac <span>Rara Avis</span></a>
+      <a class="artist-chip" href="https://kadist.org/work/meat-growers-a-love-story/" target="_blank">Rindon Johnson <span>Meat Growers: A Love Story</span></a>
+      <a class="artist-chip" href="https://www.kenrinaldo.com/portfolio/autopoiesis/" target="_blank">Kenneth Rinaldo <span>Autopoiesis</span></a>
+      <a class="artist-chip" href="https://www.interface.ufg.ac.at/christa-laurent/InteractivePlantGrowing.html" target="_blank">Sommerer & Mignonneau <span>Interactive Plant Growing</span></a>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-label"><div class="dot dot-peer"></div> Peer-Reviewed</div>
+    <div class="entries">
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">A Relational Look at Interactions between Humans and Nonhuman Organisms in Interactive Art</div>
+          <div class="entry-meta">Leonardo, MIT Press, 2025 · Multispecies interactive art; relational model for interspecies interaction design</div>
+        </div>
+        <a class="entry-link link-peer" href="https://direct.mit.edu/leon/article/58/3/294/127821/" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Ethical Implications of AI-Mediated Interspecies Communication</div>
+          <div class="entry-meta">AI and Ethics, Springer, 2025 · Posthumanism, trans-species ethics, animal agency</div>
+        </div>
+        <a class="entry-link link-peer" href="https://link.springer.com/article/10.1007/s43681-025-00828-z" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Framing Artistic Practices through New Materialism for Multispecies Futuring</div>
+          <div class="entry-meta">ScienceDirect, 2024 · Artistic practices that activate attention toward nonhuman agency</div>
+        </div>
+        <a class="entry-link link-peer" href="https://www.sciencedirect.com/science/article/pii/S0016328724002155" target="_blank">→ Read</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-label"><div class="dot dot-nonpeer"></div> Critical / Essays</div>
+    <div class="entries">
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Digital Art as a Window onto the Animal World</div>
+          <div class="entry-meta">The Bunker, 2025 · Marshmallow Laser Feast, Terike Haapoja; multispecies coexistence through new media</div>
+        </div>
+        <a class="entry-link link-nonpeer" href="https://www.the-bunker.it/en/rubrica/digital-art-as-a-window-onto-the-animal-world/" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Eco-Sci-Fi Art and Interspecies Technology</div>
+          <div class="entry-meta">Vector / BSFA, 2020 · Interspecies technology, nonhuman worlding, post-human art practices</div>
+        </div>
+        <a class="entry-link link-nonpeer" href="https://vector-bsfa.com/2020/12/30/eco-sci-fi-art-and-interspecies-technology/" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Serpentine — ISCRI: A Cephalopod ↔ Machine Encounter</div>
+          <div class="entry-meta">Serpentine Galleries · AI trained by octopus; nonhuman intelligence and machine learning in art</div>
+        </div>
+        <a class="entry-link link-nonpeer" href="https://www.serpentinegalleries.org/arts-technologies/interspecies-communication-research-initiative-iscri-a-cephalopod-%E2%86%94-machine-encounter/" target="_blank">→ Read</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 7. ECOCRITICISM & CLIMATE MEDIA ====== -->
+<section class="theme anchor" id="ecocriticism">
+  <div class="theme-header">
+    <div class="theme-num">07</div>
+    <div class="theme-title-block">
+      <div class="theme-tag">Theme</div>
+      <h2>Ecocriticism, Climate Visualization & Environmental Media</h2>
+    </div>
+  </div>
+  <p class="theme-desc">Scholarly frameworks for understanding how media — including digital and new media art — represents, communicates, and intervenes in ecological crisis.</p>
+
+  <div class="subsection">
+    <div class="subsection-label"><div class="dot dot-artist"></div> Artists & Works</div>
+    <div class="artist-grid">
+      <a class="artist-chip" href="https://refikanadol.com/works/large-nature-model-living-art/" target="_blank">Refik Anadol <span>Large Nature Model</span></a>
+      <a class="artist-chip" href="http://www.cityarts.com/lmno/ecosystm.html" target="_blank">John Klima <span>ecosystm</span></a>
+      <a class="artist-chip" href="https://artcom.de/en/?project=terravision" target="_blank">ART+COM <span>TerraVision</span></a>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-label"><div class="dot dot-peer"></div> Peer-Reviewed</div>
+    <div class="entries">
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Intermedial Ecocriticism: The Climate Crisis Through Art and Media</div>
+          <div class="entry-meta">Bruhn & Salmose — Bloomsbury, Open Access, 2023 · First book combining ecocriticism with intermedial studies</div>
+        </div>
+        <a class="entry-link link-peer" href="https://www.researchgate.net/publication/388809382_Intermedial_Ecocriticism_The_Climate_Crisis_Through_Art_and_Media" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Visualizing Climate Change: Effectiveness of Artistic Information Visualizations</div>
+          <div class="entry-meta">Environmental Communication, Taylor & Francis, 2020 · Data visualization in art and its capacity to generate climate action</div>
+        </div>
+        <a class="entry-link link-peer" href="https://www.tandfonline.com/doi/full/10.1080/21500894.2020.1769718" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Ecological Media Studies and the Matter of Digital (Humanities)</div>
+          <div class="entry-meta">eScholarship/UC · Overview of ecocritical digital humanities as a field</div>
+        </div>
+        <a class="entry-link link-peer" href="https://escholarship.org/content/qt3n0096h4/qt3n0096h4.pdf" target="_blank">→ Read</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-label"><div class="dot dot-nonpeer"></div> Critical / Essays</div>
+    <div class="entries">
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Remaking the Arts through Ecocritical Digital Humanities</div>
+          <div class="entry-meta">MediaCommons Field Guide (Duke University) · Ecocritical digital projects, AR, and environmental activism</div>
+        </div>
+        <a class="entry-link link-nonpeer" href="https://mediacommons.org/fieldguide/question/what-role-digital-humanities-transforming-and-responding-arts/response/remaking-arts-throug" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Green Visual, Media, and Cultural Studies (Ivakhiv)</div>
+          <div class="entry-meta">UVM · Overview of ecomedia studies, film, green visual studies; includes Media+Environment journal</div>
+        </div>
+        <a class="entry-link link-nonpeer" href="https://site.uvm.edu/aivakhiv/?p=99" target="_blank">→ Read</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-label"><div class="dot dot-switch"></div> Switch Journal Articles</div>
+    <div class="entries">
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Artists Working with the Earth in Mind</div>
+          <div class="entry-meta">Switch v25 · Survey of environmental art practices with ecological intent</div>
+        </div>
+        <a class="entry-link link-switch" href="https://switch.sjsu.edu/archive/v25/articles/earth_in_mind/index.html" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Moral Obligations of the Artist in a Global Warming World</div>
+          <div class="entry-meta">Switch v25 · Ethical responsibilities of artists facing ecological crisis</div>
+        </div>
+        <a class="entry-link link-switch" href="https://switch.sjsu.edu/archive/v25/features/moral_obligations/index.html" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">FEMA Trailers</div>
+          <div class="entry-meta">Switch v25 · Environmental disaster, displacement, and art's documentary role</div>
+        </div>
+        <a class="entry-link link-switch" href="https://switch.sjsu.edu/archive/v25/articles/fema_trailers/index.html" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Global Warming Symposium 2010 ZERO1</div>
+          <div class="entry-meta">Switch v27 · Art and science responses to climate crisis</div>
+        </div>
+        <a class="entry-link link-switch" href="https://switch.sjsu.edu/archive/wp/v27/index.html%3Fp=105.html" target="_blank">→ Read</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 8. ACTIVIST & CRITICAL ====== -->
+<section class="theme anchor" id="activist">
+  <div class="theme-header">
+    <div class="theme-num">08</div>
+    <div class="theme-title-block">
+      <div class="theme-tag">Theme</div>
+      <h2>Activist, Critical & Dialogic Practices</h2>
+    </div>
+  </div>
+  <p class="theme-desc">Art that uses the logic of the internet against itself, critiques extraction and waste, or builds new social ecologies — from ad-manipulation to community gardens to intellectual property.</p>
+
+  <div class="subsection">
+    <div class="subsection-label"><div class="dot dot-artist"></div> Artists & Works</div>
+    <div class="artist-grid">
+      <a class="artist-chip" href="https://tegabrain.com/Synthetic-Messenger" target="_blank">Tega Brain <span>Synthetic Messenger</span></a>
+      <a class="artist-chip" href="http://critical-art.net/genterra/" target="_blank">Critical Art Ensemble <span>Genterra</span></a>
+      <a class="artist-chip" href="http://www.medienkunstnetz.de/works/one-trees/" target="_blank">Natalie Jeremijenko <span>OneTrees</span></a>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-label"><div class="dot dot-switch"></div> Switch Journal Articles</div>
+    <div class="entries">
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Intellectual Property in the Age of Digital Reproduction</div>
+          <div class="entry-meta">Switch v24 · IP, ownership, and the politics of digital copying and ecology</div>
+        </div>
+        <a class="entry-link link-switch" href="https://switch.sjsu.edu/archive/v24/articles/ip_digital_reproduction/index.html" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">The Gift Economy of Artistic Practice and Social Systems through Dialogic Artworks</div>
+          <div class="entry-meta">Switch v24 · Social systems, sharing, and ecological community in art</div>
+        </div>
+        <a class="entry-link link-switch" href="https://switch.sjsu.edu/archive/v24/features/gift_economy/index.html" target="_blank">→ Read</a>
+      </div>
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Natalie Jeremijenko Ignites a Fire Under the Seats of CADRE Students</div>
+          <div class="entry-meta">Switch v24 · Feature on Jeremijenko's activist environmental art</div>
+        </div>
+        <a class="entry-link link-switch" href="https://switch.sjsu.edu/archive/v24/features/jeremijenko/index.html" target="_blank">→ Read</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-label"><div class="dot dot-nonpeer"></div> Critical / Essays</div>
+    <div class="entries">
+      <div class="entry">
+        <div class="entry-text">
+          <div class="entry-title">Media Art Net — Critical Art Ensemble: Genterra</div>
+          <div class="entry-meta">medienkunstnetz.de · Documentation and analysis of Genterra</div>
+        </div>
+        <a class="entry-link link-nonpeer" href="http://www.medienkunstnetz.de/works/genterra/" target="_blank">→ Read</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div>Technology + Nature / Digital Media Art — Research Bibliography</div>
+  <div>Artists · Peer-Reviewed · Critical Essays · Switch SJSU</div>
+</footer>
+
+</body>
+</html>
