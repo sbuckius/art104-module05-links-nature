@@ -199,11 +199,10 @@
   .entries { display: flex; flex-direction: column; gap: 4px; }
 
   .entry {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 16px;
-    align-items: center;
-    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 14px;
     border: 1px solid transparent;
     border-radius: 3px;
     transition: all 0.15s;
@@ -226,17 +225,34 @@
     font-size: 11px;
     color: var(--muted);
   }
+  .entry-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+  }
   .entry-link {
     font-size: 10px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     text-decoration: none;
-    padding: 5px 12px;
+    padding: 4px 10px;
     border-radius: 2px;
     white-space: nowrap;
     transition: all 0.15s;
     flex-shrink: 0;
   }
+  .link-oa {
+    color: var(--accent);
+    border: 1px solid rgba(200,240,60,0.3);
+    font-size: 9px;
+  }
+  .link-oa:hover { background: rgba(200,240,60,0.08); }
+  .link-sjsu {
+    color: #c0d8f0;
+    border: 1px solid rgba(192,216,240,0.3);
+  }
+  .link-sjsu:hover { background: rgba(192,216,240,0.08); }
   .link-peer {
     color: var(--peer);
     border: 1px solid rgba(95,166,122,0.3);
@@ -311,8 +327,6 @@
   @media (max-width: 768px) {
     header, nav, main, .legend, footer { padding-left: 24px; padding-right: 24px; }
     .theme { padding-left: 20px; }
-    .entry { grid-template-columns: 1fr; }
-    .entry-link { align-self: flex-start; }
   }
 
   /* SCROLL ANCHOR OFFSET */
@@ -333,6 +347,7 @@
   <div class="legend-item"><div class="dot dot-nonpeer"></div> Critical Essay / Catalogue / Web</div>
   <div class="legend-item"><div class="dot dot-switch"></div> Switch (SJSU) Article</div>
   <div class="legend-item"><div class="dot dot-artist"></div> Artist / Artwork</div>
+  <div class="legend-item" style="margin-left:16px; padding-left:16px; border-left:1px solid var(--border);">Per article: <span style="color:var(--peer); margin-left:6px;">→ Original</span> <span style="color:#c0d8f0; margin-left:8px;">→ SJSU Search</span> <span style="color:var(--accent); margin-left:8px;">→ Open Access</span> (where available)</div>
 </div>
 
 <nav>
@@ -382,35 +397,51 @@
           <div class="entry-title">A Survey of Recent Practice of Artificial Life in Visual Art</div>
           <div class="entry-meta">Wu, Zi-Wei et al. — Artificial Life, MIT Press, 2024 · 40-year survey of ALife art including ecosystem simulation and bio-as-data</div>
         </div>
-        <a class="entry-link link-peer" href="https://direct.mit.edu/artl/article/30/1/106/119728" target="_blank">→ Read</a>
+        <div class="entry-links">
+          <a class="entry-link link-peer" href="https://direct.mit.edu/artl/article/30/1/106/119728" target="_blank">→ Original</a>
+          <a class="entry-link link-sjsu" href="https://csu-sjsu.primo.exlibrisgroup.com/discovery/search?query=title,contains,A%20Survey%20of%20Recent%20Practice%20of%20Artificial%20Life%20in%20Visual%20Art&tab=Everything&search_scope=MyInst_and_CI&vid=01CALS_SJO:01CALS_SJO&lang=en" target="_blank">→ SJSU Search</a>
+        </div>
       </div>
       <div class="entry">
         <div class="entry-text">
           <div class="entry-title">Artificial Life Art, Creativity, and Techno-hybridization</div>
           <div class="entry-meta">Dorin, Alan — Artificial Life, MIT Press, 2015 · Special issue introduction on ALife art and biological metaphors</div>
         </div>
-        <a class="entry-link link-peer" href="https://direct.mit.edu/artl/article/21/3/261/2818" target="_blank">→ Read</a>
+        <div class="entry-links">
+          <a class="entry-link link-peer" href="https://direct.mit.edu/artl/article/21/3/261/2818" target="_blank">→ Original</a>
+          <a class="entry-link link-sjsu" href="https://csu-sjsu.primo.exlibrisgroup.com/discovery/search?query=title,contains,Artificial%20Life%20Art%2C%20Creativity%2C%20and%20Techno-hybridization&tab=Everything&search_scope=MyInst_and_CI&vid=01CALS_SJO:01CALS_SJO&lang=en" target="_blank">→ SJSU Search</a>
+        </div>
       </div>
       <div class="entry">
         <div class="entry-text">
           <div class="entry-title">The Surprising Creativity of Digital Evolution</div>
           <div class="entry-meta">Lehman, Sims, Ray et al. — Artificial Life, MIT Press, 2020 · Co-authored by artists in this list; creativity in digital evolution</div>
         </div>
-        <a class="entry-link link-peer" href="https://direct.mit.edu/artl/article/26/2/274/93255" target="_blank">→ Read</a>
+        <div class="entry-links">
+          <a class="entry-link link-peer" href="https://direct.mit.edu/artl/article/26/2/274/93255" target="_blank">→ Original</a>
+          <a class="entry-link link-sjsu" href="https://csu-sjsu.primo.exlibrisgroup.com/discovery/search?query=title,contains,The%20Surprising%20Creativity%20of%20Digital%20Evolution&tab=Everything&search_scope=MyInst_and_CI&vid=01CALS_SJO:01CALS_SJO&lang=en" target="_blank">→ SJSU Search</a>
+        </div>
       </div>
       <div class="entry">
         <div class="entry-text">
           <div class="entry-title">Art and Digital Evolution</div>
           <div class="entry-meta">Sommerer & Mignonneau — ResearchGate · Overview of their ALife practice and interactive systems</div>
         </div>
-        <a class="entry-link link-peer" href="https://www.researchgate.net/publication/299763724_Art_and_Digital_Evolution" target="_blank">→ Read</a>
+        <div class="entry-links">
+          <a class="entry-link link-peer" href="https://www.researchgate.net/publication/299763724_Art_and_Digital_Evolution" target="_blank">→ Original</a>
+          <a class="entry-link link-sjsu" href="https://csu-sjsu.primo.exlibrisgroup.com/discovery/search?query=title,contains,Art%20and%20Digital%20Evolution&tab=Everything&search_scope=MyInst_and_CI&vid=01CALS_SJO:01CALS_SJO&lang=en" target="_blank">→ SJSU Search</a>
+          <a class="entry-link link-oa" href="#" style="pointer-events:none; opacity:0.5;">✓ Open Access</a>
+        </div>
       </div>
       <div class="entry">
         <div class="entry-text">
           <div class="entry-title">Rigorous Creativity: AI, Art and Electronic Life</div>
           <div class="entry-meta">Tate Britain Electronic Life initiative — Taylor & Francis, 2025 · AI as partner in extended creativity, Tate Britain</div>
         </div>
-        <a class="entry-link link-peer" href="https://www.tandfonline.com/doi/full/10.1080/14702029.2025.2577021" target="_blank">→ Read</a>
+        <div class="entry-links">
+          <a class="entry-link link-peer" href="https://www.tandfonline.com/doi/full/10.1080/14702029.2025.2577021" target="_blank">→ Original</a>
+          <a class="entry-link link-sjsu" href="https://csu-sjsu.primo.exlibrisgroup.com/discovery/search?query=title,contains,Rigorous%20Creativity%3A%20AI%2C%20Art%20and%20Electronic%20Life&tab=Everything&search_scope=MyInst_and_CI&vid=01CALS_SJO:01CALS_SJO&lang=en" target="_blank">→ SJSU Search</a>
+        </div>
       </div>
     </div>
   </div>
@@ -513,35 +544,54 @@
           <div class="entry-title">Bioart (Yetisen, Davis et al.)</div>
           <div class="entry-meta">Trends in Biotechnology, 2015 · Comprehensive bioart history; ethics; connection to environmental art. Open access.</div>
         </div>
-        <a class="entry-link link-peer" href="https://scholar.harvard.edu/files/yetisen/files/bioart.pdf" target="_blank">→ Read</a>
+        <div class="entry-links">
+          <a class="entry-link link-peer" href="https://scholar.harvard.edu/files/yetisen/files/bioart.pdf" target="_blank">→ Original</a>
+          <a class="entry-link link-sjsu" href="https://csu-sjsu.primo.exlibrisgroup.com/discovery/search?query=title,contains,Bioart%20%28Yetisen%2C%20Davis%20et%20al.%29&tab=Everything&search_scope=MyInst_and_CI&vid=01CALS_SJO:01CALS_SJO&lang=en" target="_blank">→ SJSU Search</a>
+          <a class="entry-link link-oa" href="#" style="pointer-events:none; opacity:0.5;">✓ Open Access</a>
+        </div>
       </div>
       <div class="entry">
         <div class="entry-text">
           <div class="entry-title">Non/living Matter: Feminist Technoecologies of Bioart</div>
           <div class="entry-meta">Radomska — Australian Feminist Studies, 2017 · Focuses on TC&A, entanglement of technology and biomatter</div>
         </div>
-        <a class="entry-link link-peer" href="https://www.tandfonline.com/doi/full/10.1080/08164649.2017.1466649" target="_blank">→ Read</a>
+        <div class="entry-links">
+          <a class="entry-link link-peer" href="https://www.tandfonline.com/doi/full/10.1080/08164649.2017.1466649" target="_blank">→ Original</a>
+          <a class="entry-link link-sjsu" href="https://csu-sjsu.primo.exlibrisgroup.com/discovery/search?query=title,contains,Non/living%20Matter%3A%20Feminist%20Technoecologies%20of%20Bioart&tab=Everything&search_scope=MyInst_and_CI&vid=01CALS_SJO:01CALS_SJO&lang=en" target="_blank">→ SJSU Search</a>
+        </div>
       </div>
       <div class="entry">
         <div class="entry-text">
           <div class="entry-title">Thinking 'The End of Times': The Significance of Bioart for Art|Education</div>
           <div class="entry-meta">Jagodzinski — PMC/Open Access, 2020 · Connects bioart to Anthropocene ecological crisis</div>
         </div>
-        <a class="entry-link link-peer" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7333444/" target="_blank">→ Read</a>
+        <div class="entry-links">
+          <a class="entry-link link-peer" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7333444/" target="_blank">→ Original</a>
+          <a class="entry-link link-sjsu" href="https://csu-sjsu.primo.exlibrisgroup.com/discovery/search?query=title,contains,Thinking%20%27The%20End%20of%20Times%27%3A%20The%20Significance%20of%20Bioart%20for%20Art%7CEducation&tab=Everything&search_scope=MyInst_and_CI&vid=01CALS_SJO:01CALS_SJO&lang=en" target="_blank">→ SJSU Search</a>
+          <a class="entry-link link-oa" href="#" style="pointer-events:none; opacity:0.5;">✓ Open Access</a>
+        </div>
       </div>
       <div class="entry">
         <div class="entry-text">
           <div class="entry-title">Bioart and Bildung — Wetware: Art, Agency, Animation</div>
           <div class="entry-meta">PMC/Open Access · Bioart as ecological politics; bacteria, evolution, lifeforms in gallery space</div>
         </div>
-        <a class="entry-link link-peer" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5134944/" target="_blank">→ Read</a>
+        <div class="entry-links">
+          <a class="entry-link link-peer" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5134944/" target="_blank">→ Original</a>
+          <a class="entry-link link-sjsu" href="https://csu-sjsu.primo.exlibrisgroup.com/discovery/search?query=title,contains,Bioart%20and%20Bildung%20%E2%80%94%20Wetware%3A%20Art%2C%20Agency%2C%20Animation&tab=Everything&search_scope=MyInst_and_CI&vid=01CALS_SJO:01CALS_SJO&lang=en" target="_blank">→ SJSU Search</a>
+          <a class="entry-link link-oa" href="#" style="pointer-events:none; opacity:0.5;">✓ Open Access</a>
+        </div>
       </div>
       <div class="entry">
         <div class="entry-text">
           <div class="entry-title">Blurring Bioart Boundaries</div>
           <div class="entry-meta">Pietarinen & Qureshi — Frontiers in Communication, 2024 · Posthumanism, human-nonhuman relations in bioart</div>
         </div>
-        <a class="entry-link link-peer" href="https://www.frontiersin.org/journals/communication/articles/10.3389/fcomm.2024.1458493/full" target="_blank">→ Read</a>
+        <div class="entry-links">
+          <a class="entry-link link-peer" href="https://www.frontiersin.org/journals/communication/articles/10.3389/fcomm.2024.1458493/full" target="_blank">→ Original</a>
+          <a class="entry-link link-sjsu" href="https://csu-sjsu.primo.exlibrisgroup.com/discovery/search?query=title,contains,Blurring%20Bioart%20Boundaries&tab=Everything&search_scope=MyInst_and_CI&vid=01CALS_SJO:01CALS_SJO&lang=en" target="_blank">→ SJSU Search</a>
+          <a class="entry-link link-oa" href="#" style="pointer-events:none; opacity:0.5;">✓ Open Access</a>
+        </div>
       </div>
     </div>
   </div>
@@ -623,14 +673,22 @@
           <div class="entry-title">New Media and Concepts of Landscape (includes Telegarden & OneTrees)</div>
           <div class="entry-meta">ResearchGate · Case studies: Davies, Goldberg, Jeremijenko — new spatio-temporal relations with nature mediated by technology</div>
         </div>
-        <a class="entry-link link-peer" href="https://www.researchgate.net/publication/303414365_Char_Davies%27s_Immersive_Virtual_Art_and_the_Essence_of_Spatiality" target="_blank">→ Read</a>
+        <div class="entry-links">
+          <a class="entry-link link-peer" href="https://www.researchgate.net/publication/303414365_Char_Davies%27s_Immersive_Virtual_Art_and_the_Essence_of_Spatiality" target="_blank">→ Original</a>
+          <a class="entry-link link-sjsu" href="https://csu-sjsu.primo.exlibrisgroup.com/discovery/search?query=title,contains,New%20Media%20and%20Concepts%20of%20Landscape%20%28includes%20Telegarden%20%26%20OneTrees%29&tab=Everything&search_scope=MyInst_and_CI&vid=01CALS_SJO:01CALS_SJO&lang=en" target="_blank">→ SJSU Search</a>
+          <a class="entry-link link-oa" href="#" style="pointer-events:none; opacity:0.5;">✓ Open Access</a>
+        </div>
       </div>
       <div class="entry">
         <div class="entry-text">
           <div class="entry-title">The Robot in the Garden — Introduction (Goldberg)</div>
           <div class="entry-meta">goldberg.berkeley.edu · Chapter on telepistemology: perception, knowledge, and agency in internet projects</div>
         </div>
-        <a class="entry-link link-peer" href="https://goldberg.berkeley.edu/art/tele/intro.html" target="_blank">→ Read</a>
+        <div class="entry-links">
+          <a class="entry-link link-peer" href="https://goldberg.berkeley.edu/art/tele/intro.html" target="_blank">→ Original</a>
+          <a class="entry-link link-sjsu" href="https://csu-sjsu.primo.exlibrisgroup.com/discovery/search?query=title,contains,The%20Robot%20in%20the%20Garden%20%E2%80%94%20Introduction%20%28Goldberg%29&tab=Everything&search_scope=MyInst_and_CI&vid=01CALS_SJO:01CALS_SJO&lang=en" target="_blank">→ SJSU Search</a>
+          <a class="entry-link link-oa" href="#" style="pointer-events:none; opacity:0.5;">✓ Open Access</a>
+        </div>
       </div>
     </div>
   </div>
@@ -718,21 +776,31 @@
           <div class="entry-title">"Environmental media" in the cloud: Critical Data Center Art</div>
           <div class="entry-meta">Hogan — New Media & Society, 2023 · Art as intervention in digital infrastructure; connects directly to works like Synthetic Messenger</div>
         </div>
-        <a class="entry-link link-peer" href="https://journals.sagepub.com/doi/10.1177/14614448221149942" target="_blank">→ Read</a>
+        <div class="entry-links">
+          <a class="entry-link link-peer" href="https://journals.sagepub.com/doi/10.1177/14614448221149942" target="_blank">→ Original</a>
+          <a class="entry-link link-sjsu" href="https://csu-sjsu.primo.exlibrisgroup.com/discovery/search?query=title,contains,%22Environmental%20media%22%20in%20the%20cloud%3A%20Critical%20Data%20Center%20Art&tab=Everything&search_scope=MyInst_and_CI&vid=01CALS_SJO:01CALS_SJO&lang=en" target="_blank">→ SJSU Search</a>
+        </div>
       </div>
       <div class="entry">
         <div class="entry-text">
           <div class="entry-title">The Medium Is the Environment: Digital Materialism, Climate Crisis and Digital Art as Pedagogy</div>
           <div class="entry-meta">LeBlanc et al. — International Journal of Education Through Art, 2023</div>
         </div>
-        <a class="entry-link link-peer" href="https://intellectdiscover.com/content/journals/10.1386/eta_00119_1" target="_blank">→ Read</a>
+        <div class="entry-links">
+          <a class="entry-link link-peer" href="https://intellectdiscover.com/content/journals/10.1386/eta_00119_1" target="_blank">→ Original</a>
+          <a class="entry-link link-sjsu" href="https://csu-sjsu.primo.exlibrisgroup.com/discovery/search?query=title,contains,The%20Medium%20Is%20the%20Environment%3A%20Digital%20Materialism%2C%20Climate%20Crisis%20and%20Digital%20Art%20as%20Pedagogy&tab=Everything&search_scope=MyInst_and_CI&vid=01CALS_SJO:01CALS_SJO&lang=en" target="_blank">→ SJSU Search</a>
+        </div>
       </div>
       <div class="entry">
         <div class="entry-text">
           <div class="entry-title">The Environmental Sustainability of Digital Content Consumption</div>
           <div class="entry-meta">Freitag et al. — Nature Communications, 2024 · Peer-reviewed science on the carbon footprint of internet use</div>
         </div>
-        <a class="entry-link link-peer" href="https://www.nature.com/articles/s41467-024-47621-w" target="_blank">→ Read</a>
+        <div class="entry-links">
+          <a class="entry-link link-peer" href="https://www.nature.com/articles/s41467-024-47621-w" target="_blank">→ Original</a>
+          <a class="entry-link link-sjsu" href="https://csu-sjsu.primo.exlibrisgroup.com/discovery/search?query=title,contains,The%20Environmental%20Sustainability%20of%20Digital%20Content%20Consumption&tab=Everything&search_scope=MyInst_and_CI&vid=01CALS_SJO:01CALS_SJO&lang=en" target="_blank">→ SJSU Search</a>
+          <a class="entry-link link-oa" href="#" style="pointer-events:none; opacity:0.5;">✓ Open Access</a>
+        </div>
       </div>
     </div>
   </div>
@@ -811,14 +879,21 @@
           <div class="entry-title">Char Davies's Immersive Virtual Art and the Essence of Spatiality</div>
           <div class="entry-meta">ResearchGate/Book · Davies' VR works Osmose and Ephémère; case studies including Telegarden and OneTrees</div>
         </div>
-        <a class="entry-link link-peer" href="https://www.researchgate.net/publication/303414365_Char_Davies%27s_Immersive_Virtual_Art_and_the_Essence_of_Spatiality" target="_blank">→ Read</a>
+        <div class="entry-links">
+          <a class="entry-link link-peer" href="https://www.researchgate.net/publication/303414365_Char_Davies%27s_Immersive_Virtual_Art_and_the_Essence_of_Spatiality" target="_blank">→ Original</a>
+          <a class="entry-link link-sjsu" href="https://csu-sjsu.primo.exlibrisgroup.com/discovery/search?query=title,contains,New%20Media%20and%20Concepts%20of%20Landscape%20%28includes%20Telegarden%20%26%20OneTrees%29&tab=Everything&search_scope=MyInst_and_CI&vid=01CALS_SJO:01CALS_SJO&lang=en" target="_blank">→ SJSU Search</a>
+          <a class="entry-link link-oa" href="#" style="pointer-events:none; opacity:0.5;">✓ Open Access</a>
+        </div>
       </div>
       <div class="entry">
         <div class="entry-text">
           <div class="entry-title">The Two Waves of Virtual Reality in Artistic Practice</div>
           <div class="entry-meta">Doyle — Virtual Creativity, Intellect, 2021 · 1990s VR art (Davies, Dove) to contemporary immersive practices</div>
         </div>
-        <a class="entry-link link-peer" href="https://intellectdiscover.com/content/journals/10.1386/vcr_00054_1" target="_blank">→ Read</a>
+        <div class="entry-links">
+          <a class="entry-link link-peer" href="https://intellectdiscover.com/content/journals/10.1386/vcr_00054_1" target="_blank">→ Original</a>
+          <a class="entry-link link-sjsu" href="https://csu-sjsu.primo.exlibrisgroup.com/discovery/search?query=title,contains,The%20Two%20Waves%20of%20Virtual%20Reality%20in%20Artistic%20Practice&tab=Everything&search_scope=MyInst_and_CI&vid=01CALS_SJO:01CALS_SJO&lang=en" target="_blank">→ SJSU Search</a>
+        </div>
       </div>
     </div>
   </div>
@@ -887,21 +962,30 @@
           <div class="entry-title">A Relational Look at Interactions between Humans and Nonhuman Organisms in Interactive Art</div>
           <div class="entry-meta">Leonardo, MIT Press, 2025 · Multispecies interactive art; relational model for interspecies interaction design</div>
         </div>
-        <a class="entry-link link-peer" href="https://direct.mit.edu/leon/article/58/3/294/127821/" target="_blank">→ Read</a>
+        <div class="entry-links">
+          <a class="entry-link link-peer" href="https://direct.mit.edu/leon/article/58/3/294/127821/" target="_blank">→ Original</a>
+          <a class="entry-link link-sjsu" href="https://csu-sjsu.primo.exlibrisgroup.com/discovery/search?query=title,contains,A%20Relational%20Look%20at%20Interactions%20between%20Humans%20and%20Nonhuman%20Organisms%20in%20Interactive%20Art&tab=Everything&search_scope=MyInst_and_CI&vid=01CALS_SJO:01CALS_SJO&lang=en" target="_blank">→ SJSU Search</a>
+        </div>
       </div>
       <div class="entry">
         <div class="entry-text">
           <div class="entry-title">Ethical Implications of AI-Mediated Interspecies Communication</div>
           <div class="entry-meta">AI and Ethics, Springer, 2025 · Posthumanism, trans-species ethics, animal agency</div>
         </div>
-        <a class="entry-link link-peer" href="https://link.springer.com/article/10.1007/s43681-025-00828-z" target="_blank">→ Read</a>
+        <div class="entry-links">
+          <a class="entry-link link-peer" href="https://link.springer.com/article/10.1007/s43681-025-00828-z" target="_blank">→ Original</a>
+          <a class="entry-link link-sjsu" href="https://csu-sjsu.primo.exlibrisgroup.com/discovery/search?query=title,contains,Ethical%20Implications%20of%20AI-Mediated%20Interspecies%20Communication&tab=Everything&search_scope=MyInst_and_CI&vid=01CALS_SJO:01CALS_SJO&lang=en" target="_blank">→ SJSU Search</a>
+        </div>
       </div>
       <div class="entry">
         <div class="entry-text">
           <div class="entry-title">Framing Artistic Practices through New Materialism for Multispecies Futuring</div>
           <div class="entry-meta">ScienceDirect, 2024 · Artistic practices that activate attention toward nonhuman agency</div>
         </div>
-        <a class="entry-link link-peer" href="https://www.sciencedirect.com/science/article/pii/S0016328724002155" target="_blank">→ Read</a>
+        <div class="entry-links">
+          <a class="entry-link link-peer" href="https://www.sciencedirect.com/science/article/pii/S0016328724002155" target="_blank">→ Original</a>
+          <a class="entry-link link-sjsu" href="https://csu-sjsu.primo.exlibrisgroup.com/discovery/search?query=title,contains,Framing%20Artistic%20Practices%20through%20New%20Materialism%20for%20Multispecies%20Futuring&tab=Everything&search_scope=MyInst_and_CI&vid=01CALS_SJO:01CALS_SJO&lang=en" target="_blank">→ SJSU Search</a>
+        </div>
       </div>
     </div>
   </div>
@@ -962,21 +1046,32 @@
           <div class="entry-title">Intermedial Ecocriticism: The Climate Crisis Through Art and Media</div>
           <div class="entry-meta">Bruhn & Salmose — Bloomsbury, Open Access, 2023 · First book combining ecocriticism with intermedial studies</div>
         </div>
-        <a class="entry-link link-peer" href="https://www.researchgate.net/publication/388809382_Intermedial_Ecocriticism_The_Climate_Crisis_Through_Art_and_Media" target="_blank">→ Read</a>
+        <div class="entry-links">
+          <a class="entry-link link-peer" href="https://www.researchgate.net/publication/388809382_Intermedial_Ecocriticism_The_Climate_Crisis_Through_Art_and_Media" target="_blank">→ Original</a>
+          <a class="entry-link link-sjsu" href="https://csu-sjsu.primo.exlibrisgroup.com/discovery/search?query=title,contains,Intermedial%20Ecocriticism%3A%20The%20Climate%20Crisis%20Through%20Art%20and%20Media&tab=Everything&search_scope=MyInst_and_CI&vid=01CALS_SJO:01CALS_SJO&lang=en" target="_blank">→ SJSU Search</a>
+          <a class="entry-link link-oa" href="#" style="pointer-events:none; opacity:0.5;">✓ Open Access</a>
+        </div>
       </div>
       <div class="entry">
         <div class="entry-text">
           <div class="entry-title">Visualizing Climate Change: Effectiveness of Artistic Information Visualizations</div>
           <div class="entry-meta">Environmental Communication, Taylor & Francis, 2020 · Data visualization in art and its capacity to generate climate action</div>
         </div>
-        <a class="entry-link link-peer" href="https://www.tandfonline.com/doi/full/10.1080/21500894.2020.1769718" target="_blank">→ Read</a>
+        <div class="entry-links">
+          <a class="entry-link link-peer" href="https://www.tandfonline.com/doi/full/10.1080/21500894.2020.1769718" target="_blank">→ Original</a>
+          <a class="entry-link link-sjsu" href="https://csu-sjsu.primo.exlibrisgroup.com/discovery/search?query=title,contains,Visualizing%20Climate%20Change%3A%20Effectiveness%20of%20Artistic%20Information%20Visualizations&tab=Everything&search_scope=MyInst_and_CI&vid=01CALS_SJO:01CALS_SJO&lang=en" target="_blank">→ SJSU Search</a>
+        </div>
       </div>
       <div class="entry">
         <div class="entry-text">
           <div class="entry-title">Ecological Media Studies and the Matter of Digital (Humanities)</div>
           <div class="entry-meta">eScholarship/UC · Overview of ecocritical digital humanities as a field</div>
         </div>
-        <a class="entry-link link-peer" href="https://escholarship.org/content/qt3n0096h4/qt3n0096h4.pdf" target="_blank">→ Read</a>
+        <div class="entry-links">
+          <a class="entry-link link-peer" href="https://escholarship.org/content/qt3n0096h4/qt3n0096h4.pdf" target="_blank">→ Original</a>
+          <a class="entry-link link-sjsu" href="https://csu-sjsu.primo.exlibrisgroup.com/discovery/search?query=title,contains,Ecological%20Media%20Studies%20and%20the%20Matter%20of%20Digital%20%28Humanities%29&tab=Everything&search_scope=MyInst_and_CI&vid=01CALS_SJO:01CALS_SJO&lang=en" target="_blank">→ SJSU Search</a>
+          <a class="entry-link link-oa" href="#" style="pointer-events:none; opacity:0.5;">✓ Open Access</a>
+        </div>
       </div>
     </div>
   </div>
